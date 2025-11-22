@@ -1,0 +1,44 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Launch Producer",
+            "request": "launch",
+            "mainClass": "com.example.producer.KafkaProducerApplication",
+            "projectName": "kafka-producer",
+            "cwd": "${workspaceFolder}/kafka-producer",
+            "console": "integratedTerminal",
+            "env": {
+                "SPRING_PROFILES_ACTIVE": "default"
+            }
+        },
+        {
+            "type": "java",
+            "name": "Launch Consumer",
+            "request": "launch",
+            "mainClass": "com.example.consumer.KafkaConsumerApplication",
+            "projectName": "kafka-consumer",
+            "cwd": "${workspaceFolder}/kafka-consumer",
+            "console": "integratedTerminal",
+            "env": {
+                "SPRING_PROFILES_ACTIVE": "default"
+            }
+        }
+    ],
+    "compounds": [
+        {
+            "name": "Launch Both Services",
+            "configurations": [
+                "Launch Consumer",
+                "Launch Producer"
+            ],
+            "stopAll": true,
+            "presentation": {
+                "hidden": false,
+                "group": "kafka-services",
+                "order": 1
+            }
+        }
+    ]
+}
