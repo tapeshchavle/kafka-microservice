@@ -248,4 +248,3 @@ done
 
 ## License
 
-This is a demo project for learning purposes.

