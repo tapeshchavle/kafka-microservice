@@ -1,4 +1,4 @@
-# Kafka Microservices Demo
+ # Kafka Microservices Demo
 
 This project demonstrates a simple event-driven architecture using two Spring Boot microservices with Apache Kafka:
 - **kafka-producer**: Publishes user events via REST API
